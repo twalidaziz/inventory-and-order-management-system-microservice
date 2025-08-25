@@ -10,7 +10,7 @@ SPRING_JPA_HIBERNATE_DDL_AUTO=update
 SPRING_SQL_INIT_MODE=always
 ```
 # Auth Service data.sql
-```
+```sql
 -- Ensure the 'user' table exists
 CREATE TABLE IF NOT EXISTS "user" (
     id UUID PRIMARY KEY,
@@ -41,7 +41,7 @@ SPRING_JPA_HIBERNATE_DDL_AUTO=update
 SPRING_SQL_INIT_MODE=always
 ```
 # Client Service data.sql
-```
+```sql
 -- Ensure the 'client' table exists
 CREATE TABLE IF NOT EXISTS client
 (
