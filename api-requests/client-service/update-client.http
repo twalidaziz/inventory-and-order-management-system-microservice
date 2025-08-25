@@ -1,0 +1,11 @@
+### PUT request to update an existing client entity
+PUT http://localhost:4000/clients/123e4567-e89b-12d3-a456-426614174000
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "address": "987 Cedar St, Springfield"
+}
+
+###

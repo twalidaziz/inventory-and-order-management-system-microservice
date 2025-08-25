@@ -1,0 +1,7 @@
+GRPC localhost:9001/OrderService/CreateOrder
+
+{
+  "clientId": "1001",
+  "name": "John Doe",
+  "email": "johndoe@eexample.com"
+}

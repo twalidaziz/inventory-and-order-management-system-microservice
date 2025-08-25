@@ -1,0 +1,11 @@
+### Create a new client entity
+POST http://localhost:4000/clients
+Content-Type: application/json
+
+{
+  "name": "Doom Guy",
+  "email": "doom.guy@example.com",
+  "address": "666 Crucible St, Hell City"
+}
+
+###

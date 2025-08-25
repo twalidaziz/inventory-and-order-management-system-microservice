@@ -1,0 +1,43 @@
+server:
+  port: 4004
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        ## REST CLIENT -> http://localhost:4004/auth/login
+        ## API GATEWAY -> http://auth-service:4005/login
+        - id: auth-service-route
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+        ## REST CLIENT -> http://localhost:4004/api/clients
+        ## API GATEWAY -> http://client-service:4000/clients
+        ## CLIENT SERVICE -> /clients -> List of Clients
+        - id: client-service-route
+          uri: http://client-service:4000
+          predicates:
+            - Path=/api/clients/**
+          filters:
+            - StripPrefix=1
+            - JwtValidation
+
+        ## REST-CLIENT -> http://localhost:4004/api-docs/clients
+        ## API-GATEWAY -> http://client-service:4000/v3/api-docs
+        - id: api-docs-client-route
+          uri: http://client-service:4000
+          predicates:
+            - Path=/api-docs/clients
+          filters:
+            - RewritePath=/api-docs/clients,/v3/api-docs
+
+        - id: api-docs-auth-route
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/api-docs/auth
+          filters:
+            - RewritePath=/api-docs/auth,/v3/api-docs
+

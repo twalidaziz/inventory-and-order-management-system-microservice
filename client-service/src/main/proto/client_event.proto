@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package client.events;
+option java_multiple_files = true;
+
+message ClientEvent {
+  string clientId = 1;
+  string name = 2;
+  string email = 3;
+  string event_type = 4;
+}

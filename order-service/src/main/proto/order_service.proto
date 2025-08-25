@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "order";
+
+service OrderService {
+  rpc CreateOrder (CreateOrderRequest) returns (OrderResponse);
+}
+
+message CreateOrderRequest {
+  string clientId = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message OrderResponse {
+  string orderId = 1;
+  string status = 2;
+}

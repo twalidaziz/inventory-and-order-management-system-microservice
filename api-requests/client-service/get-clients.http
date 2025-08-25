@@ -1,0 +1,3 @@
+### GET request to get all clients
+GET http://localhost:4004/api/clients
+Authorization: Bearer {{token}}
